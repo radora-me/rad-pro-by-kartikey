@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    optimizeConstrainedDevices();
     initHeroVideo();
     initGSAPObjects();
     initScrollAnimations();
@@ -13,6 +14,31 @@ document.addEventListener('DOMContentLoaded', () => {
     initForm();
     initRoadmap();
 });
+
+function isConstrainedDevice() {
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    return window.matchMedia('(max-width: 800px)').matches
+        || window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        || Boolean(connection && connection.saveData)
+        || (typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4);
+}
+
+function optimizeConstrainedDevices() {
+    if (!isConstrainedDevice()) return;
+
+    document.documentElement.classList.add('constrained-device');
+    document.querySelectorAll('video').forEach(video => {
+        video.pause();
+        video.removeAttribute('autoplay');
+        video.preload = 'none';
+        video.querySelectorAll('source').forEach(source => {
+            const sourceUrl = source.getAttribute('src');
+            if (sourceUrl) source.dataset.src = sourceUrl;
+            source.removeAttribute('src');
+        });
+        video.load();
+    });
+}
 
 function initHeroVideo() {
     const videos = document.querySelectorAll('.hero-video, .about-video, .ea-video, .footer-video, .stack-video, .team-profile-video');
@@ -47,7 +73,7 @@ function initHeroVideo() {
 }
 
 function initGSAPObjects() {
-    if (typeof gsap === 'undefined' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (typeof gsap === 'undefined' || isConstrainedDevice()) return;
     if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
 
     const consoleObject = document.querySelector('.glass-console');
@@ -151,7 +177,11 @@ function initScrollAnimations() {
 
 function initHeadingTextAnimations() {
     const headings = document.querySelectorAll('main h1, main h2, main h3, main h4, .footer h1, .footer h2, .footer h3, .footer h4, .faq-question > span:first-child');
-    if (!headings.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!headings.length) return;
+    if (isConstrainedDevice()) {
+        headings.forEach(heading => heading.classList.add('visible'));
+        return;
+    }
 
     headings.forEach(heading => {
         const textCopy = heading.cloneNode(true);

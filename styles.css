@@ -1708,7 +1708,6 @@ body {
 .section-stack::after {
   display: none;
 }
-}
 
 .section-stack > .container {
   position: relative;
@@ -2745,4 +2744,60 @@ body {
 
 body.menu-open {
   overflow: hidden;
+}
+
+/* Keep mobile and data-saving devices on a lightweight rendering path. */
+.constrained-device .hero-video,
+.constrained-device .about-video,
+.constrained-device .ea-video,
+.constrained-device .footer-video,
+.constrained-device .stack-item-video,
+.constrained-device .why-card-video,
+.constrained-device .team-profile-video {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  body {
+    background:
+      radial-gradient(ellipse 100% 28% at 50% 100%, rgba(141, 82, 255, .48), transparent 68%),
+      #070510;
+  }
+
+  body::before {
+    opacity: .08;
+    background-size: 96px 96px;
+  }
+
+  .nav-inner,
+  .mobile-menu,
+  .glass-console,
+  .reference-card,
+  .product-card,
+  .why-card,
+  .team-profile,
+  .ea-form,
+  .privacy-dialog {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .hero::before,
+  .reference-stage::before {
+    filter: none;
+  }
+
+  .hero,
+  .section-about,
+  .section-products,
+  .section-stack,
+  .section-why,
+  .section-stage,
+  .section-roadmap,
+  .section-ea,
+  .section-faq,
+  .footer,
+  .team-hero {
+    contain: layout style;
+  }
 }
