@@ -8,399 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#09090d">
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/svg+xml" href="gemini-svg (1).svg">
-    <style>
-        /* ═══════════════════════════════════════════════════════
-           E-VISITING CARD PAGE — self-contained styles
-           ═══════════════════════════════════════════════════════ */
-
-        .vcard-page {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .vcard-hero {
-            padding: 140px 0 60px;
-        }
-        .vcard-hero .team-eyebrow {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--muted);
-            font: 500 11px/1 'JetBrains Mono', monospace;
-            text-transform: uppercase;
-            letter-spacing: .18em;
-            margin-bottom: 28px;
-        }
-        .vcard-hero .team-eyebrow span {
-            display: block;
-            width: 28px;
-            height: 1px;
-            background: var(--blue);
-        }
-        .vcard-hero h1 {
-            font-size: clamp(32px, 5vw, 54px);
-            font-weight: 700;
-            line-height: 1.08;
-            letter-spacing: -.045em;
-            margin-bottom: 12px;
-        }
-        .vcard-hero h1 span {
-            background: linear-gradient(110deg, var(--blue), var(--cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .vcard-hero .vcard-intro {
-            color: var(--muted);
-            font-size: 16px;
-            max-width: 540px;
-            line-height: 1.7;
-        }
-
-        /* ── Card Container ── */
-        .vcard-showcase {
-            padding: 0 0 100px;
-        }
-        .vcard-wrapper {
-            perspective: 1200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 48px;
-        }
-
-        /* ── Individual Card ── */
-        .vcard {
-            position: relative;
-            width: 100%;
-            max-width: 630px;
-            aspect-ratio: 3.5 / 2;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow:
-                0 2px 0 rgba(134,167,255,.12),
-                0 24px 64px rgba(0,0,0,.55),
-                0 4px 16px rgba(0,0,0,.3),
-                inset 0 1px 0 rgba(255,255,255,.06);
-            transition: transform .5s var(--ease), box-shadow .5s var(--ease);
-            cursor: default;
-        }
-        .vcard:hover {
-            transform: translateY(-6px) rotateX(2deg);
-            box-shadow:
-                0 2px 0 rgba(134,167,255,.18),
-                0 32px 80px rgba(0,0,0,.6),
-                0 8px 24px rgba(0,0,0,.35),
-                inset 0 1px 0 rgba(255,255,255,.1);
-        }
-
-        /* ── Card Label ── */
-        .vcard-label {
-            text-align: center;
-            margin-bottom: 14px;
-            font: 500 11px/1 'JetBrains Mono', monospace;
-            color: var(--faint);
-            text-transform: uppercase;
-            letter-spacing: .18em;
-        }
-
-        /* ── FRONT CARD ── */
-        .vcard-front {
-            background:
-                radial-gradient(ellipse at 15% 20%, rgba(50, 100, 255, .25), transparent 50%),
-                radial-gradient(ellipse at 85% 80%, rgba(80, 120, 255, .18), transparent 45%),
-                linear-gradient(145deg, #090c18 0%, #0a0f1c 40%, #060a14 100%);
-        }
-        .vcard-front::before {
-            content: "";
-            position: absolute;
-            top: -30%;
-            left: -10%;
-            width: 65%;
-            height: 120%;
-            background: linear-gradient(
-                135deg,
-                rgba(60, 120, 255, .06) 0%,
-                rgba(60, 130, 255, .14) 30%,
-                rgba(80, 150, 255, .08) 50%,
-                transparent 70%
-            );
-            border-radius: 0 0 60% 0;
-            pointer-events: none;
-        }
-        .vcard-front::after {
-            content: "";
-            position: absolute;
-            bottom: -20%;
-            right: -10%;
-            width: 55%;
-            height: 80%;
-            background: linear-gradient(
-                -45deg,
-                rgba(40, 90, 255, .06) 0%,
-                rgba(60, 140, 255, .12) 40%,
-                transparent 70%
-            );
-            border-radius: 60% 0 0 0;
-            pointer-events: none;
-        }
-
-        /* Wave decorations */
-        .vcard-wave {
-            position: absolute;
-            pointer-events: none;
-        }
-        .vcard-wave-top {
-            top: 0; left: 0; width: 100%; height: 100%;
-        }
-        .vcard-wave-bottom {
-            bottom: 0; right: 0; width: 100%; height: 100%;
-        }
-
-        /* Front content */
-        .vcard-front-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            padding: 32px;
-            text-align: center;
-        }
-        .vcard-logo-group {
-            display: flex;
-            align-items: center;
-            gap: 0;
-            margin-bottom: 6px;
-        }
-        
-        .vcard-logo-r {
-            font: 700 clamp(42px, 8vw, 62px) 'Space Grotesk', sans-serif;
-            letter-spacing: -.04em;
-            color: var(--text);
-            line-height: 1;
-        }
-        .vcard-logo-arrow {
-            width: clamp(28px, 5vw, 40px);
-            height: clamp(28px, 5vw, 40px);
-            margin-left: 2px;
-            fill: var(--text);
-        }
-        .vcard-tagline {
-            font: italic 400 clamp(12px, 2vw, 16px)/1.4 'Space Grotesk', sans-serif;
-            color: var(--muted);
-            letter-spacing: .02em;
-            margin-bottom: 20px;
-        }
-        .vcard-services {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            font: 500 clamp(8px, 1.4vw, 11px)/1 'JetBrains Mono', monospace;
-            text-transform: uppercase;
-            letter-spacing: .14em;
-            color: var(--faint);
-        }
-        .vcard-services-sep {
-            width: 1px;
-            height: 12px;
-            background: var(--faint);
-            opacity: .5;
-        }
-
-        /* ── BACK CARD ── */
-        .vcard-back {
-            background:
-                radial-gradient(ellipse at 80% 65%, rgba(30, 70, 200, .15), transparent 50%),
-                linear-gradient(145deg, #080b16 0%, #0a0f1c 100%);
-        }
-        .vcard-back-content {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            height: 100%;
-            padding: clamp(20px, 4vw, 36px);
-        }
-
-        /* Back Left */
-        .vcard-back-left {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .vcard-person-name {
-            font: 700 clamp(18px, 3.6vw, 28px) 'Space Grotesk', sans-serif;
-            letter-spacing: -.03em;
-            color: var(--text);
-            margin-bottom: 2px;
-        }
-        .vcard-person-role {
-            font: 500 clamp(9px, 1.6vw, 12px)/1 'JetBrains Mono', monospace;
-            text-transform: uppercase;
-            letter-spacing: .2em;
-            color: var(--blue);
-            margin-bottom: clamp(12px, 2.5vw, 22px);
-        }
-        .vcard-contact-list {
-            display: flex;
-            flex-direction: column;
-            gap: clamp(6px, 1.2vw, 10px);
-        }
-        .vcard-contact-item {
-            display: flex;
-            align-items: center;
-            gap: clamp(8px, 1.5vw, 12px);
-            color: var(--muted);
-            font-size: clamp(9px, 1.5vw, 13px);
-            transition: color .2s;
-        }
-        .vcard-contact-item:hover {
-            color: var(--text);
-        }
-        .vcard-contact-icon {
-            flex-shrink: 0;
-            width: clamp(18px, 3vw, 26px);
-            height: clamp(18px, 3vw, 26px);
-            border-radius: 50%;
-            border: 1px solid rgba(134,167,255,.25);
-            display: grid;
-            place-items: center;
-        }
-        .vcard-contact-icon svg {
-            width: clamp(10px, 1.5vw, 13px);
-            height: clamp(10px, 1.5vw, 13px);
-            fill: none;
-            stroke: var(--blue);
-            stroke-width: 1.8;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        /* Back Right — Globe + Quote */
-        .vcard-back-right {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            justify-content: center;
-            text-align: right;
-            position: relative;
-        }
-        .vcard-globe {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            opacity: .25;
-            overflow: hidden;
-            border-radius: 0 10px 10px 0;
-        }
-        .vcard-globe canvas {
-            width: 100%;
-            height: 100%;
-        }
-        .vcard-quote {
-            position: relative;
-            z-index: 1;
-            font: italic 500 clamp(12px, 2.2vw, 18px)/1.35 'Space Grotesk', sans-serif;
-            color: var(--text);
-            max-width: 220px;
-            letter-spacing: -.01em;
-        }
-        .vcard-quote-line {
-            display: block;
-            width: 40px;
-            height: 3px;
-            background: var(--blue);
-            border-radius: 2px;
-            margin-top: 12px;
-            margin-left: auto;
-        }
-
-        /* ── Download / Actions ── */
-        .vcard-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: center;
-            padding-top: 12px;
-        }
-        .vcard-actions .btn-outline,
-        .vcard-actions .btn-primary {
-            font-size: 13px;
-        }
-        .vcard-actions button:disabled {
-            opacity: .55;
-            cursor: wait;
-        }
-        .vcard-download-status {
-            flex-basis: 100%;
-            min-height: 18px;
-            color: var(--muted);
-            font: 11px/1.5 'JetBrains Mono', monospace;
-            text-align: center;
-        }
-
-        /* ── Responsive ── */
-        @media (max-width: 720px) {
-            .vcard { max-width: 100%; }
-            .vcard-services { gap: 10px; }
-            .vcard-actions { flex-direction: column; align-items: stretch; }
-            .vcard-actions > * { width: 100%; text-align: center; }
-        }
-
-        @media (max-width: 520px) {
-            .vcard-showcase { padding-bottom: 72px; }
-            .vcard-front {
-                aspect-ratio: 1 / 1.08;
-                min-height: 300px;
-            }
-            .vcard-back {
-                aspect-ratio: auto;
-                min-height: 420px;
-            }
-            .vcard-back-content {
-                grid-template-columns: 1fr;
-                gap: 18px;
-            }
-            .vcard-back-right {
-                align-items: flex-start;
-                text-align: left;
-                min-height: 88px;
-            }
-            .vcard-quote-line { margin-left: 0; }
-            .vcard-globe { display: none; }
-            .vcard-contact-item { font-size: 11px; }
-            .vcard-contact-item > span:last-child { overflow-wrap: anywhere; }
-            .vcard-services {
-                flex-wrap: wrap;
-                justify-content: center;
-                row-gap: 9px;
-            }
-            .vcard-services-sep { display: none; }
-        }
-
-        /* ── Animation classes ── */
-        .vcard-anim {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity .7s var(--ease), transform .7s var(--ease);
-        }
-        .vcard-anim.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .vcard-anim:nth-child(2) { transition-delay: .12s; }
-        .vcard-anim:nth-child(3) { transition-delay: .24s; }
-
-        /* ── Reuse team footer ── */
-        .vcard-page .team-footer { margin-top: auto; }
-    </style>
+    <link rel="stylesheet" href="team.css">
+    <link rel="stylesheet" href="card.css">
+    <link rel="icon" type="image/svg+xml" href="gemini-svg%20(1).svg">
 </head>
 <body class="team-page vcard-page">
     <!-- Navbar (same as team page) -->
@@ -436,17 +49,17 @@
 
     <main>
         <!-- Hero -->
-        <section class="vcard-hero">
-            <div class="container">
-                <p class="team-eyebrow"><span></span> Digital visiting card</p>
-                <h1>Connect with<br><span>Radora.</span></h1>
-                <p class="vcard-intro">Our digital business card — all the details you need to reach us, in one place.</p>
+        <section class="tm-hero">
+            <div class="tm-wrap">
+                <p class="tm-badge"><span class="tm-badge-dot" aria-hidden="true"></span> Digital visiting card</p>
+                <h1 class="tm-title">Connect with<br><span class="tm-grad">Radora.</span></h1>
+                <p class="tm-intro">Our digital business card — all the details you need to reach us, in one place.</p>
             </div>
         </section>
 
         <!-- Card Showcase -->
         <section class="vcard-showcase">
-            <div class="container">
+            <div class="tm-wrap">
                 <div class="vcard-wrapper">
 
                     <!-- ═══ FRONT ═══ -->
@@ -531,7 +144,7 @@
                                             <span>office@radora.tech</span>
                                         </a>
                                         <!-- Website -->
-                                        <a href="https://www.radora.tech" target="_blank" class="vcard-contact-item">
+                                        <a href="https://www.radora.tech" target="_blank" rel="noopener" class="vcard-contact-item">
                                             <span class="vcard-contact-icon">
                                                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
                                             </span>
@@ -562,22 +175,22 @@
 
                     <!-- Actions -->
                     <div class="vcard-actions vcard-anim">
-                        <button class="btn-outline" type="button" data-download-card="front">Download front PNG</button>
-                        <button class="btn-outline" type="button" data-download-card="back">Download back PNG</button>
+                        <button class="vc-btn" type="button" data-download-card="front">Download front PNG</button>
+                        <button class="vc-btn" type="button" data-download-card="back">Download back PNG</button>
                         <span class="vcard-download-status" id="vcardDownloadStatus" role="status" aria-live="polite"></span>
-                        <a href="mailto:kartikey.pandey@radora.tech" class="btn-primary">Get in Touch →</a>
-                        <a href="https://www.linkedin.com/company/radora-tech/" target="_blank" class="btn-outline">LinkedIn ↗</a>
+                        <a href="mailto:kartikey.pandey@radora.tech" class="tm-btn">Get in Touch <span aria-hidden="true">→</span></a>
+                        <a href="https://www.linkedin.com/company/radora-tech/" target="_blank" rel="noopener" class="vc-btn">LinkedIn ↗</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer (same as team page) -->
-    <footer class="team-footer">
-        <div class="container team-footer-inner">
-            <a href="index.html#top" class="team-footer-logo" aria-label="Radora home">
-                <img src="https://res.cloudinary.com/dcilrqmox/image/upload/v1785686905/radora_office-removebg-preview_u7bznt.png" alt="Radora logo">
+    <!-- Footer -->
+    <footer class="tm-footer">
+        <div class="tm-wrap tm-footer-inner">
+            <a href="index.html#top" class="tm-footer-logo" aria-label="Radora home">
+                <img src="https://res.cloudinary.com/dcilrqmox/image/upload/v1785686905/radora_office-removebg-preview_u7bznt.png" alt="Radora logo" loading="lazy" decoding="async">
             </a>
             <p>Building AI-powered digital infrastructure for the future of institutions.</p>
             <a href="index.html">Back to Radora <span aria-hidden="true">↗</span></a>
@@ -585,8 +198,9 @@
     </footer>
 
     <div class="cursor-glow" id="cursorGlow"></div>
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-    <script src="script.js"></script>
+    <script src="webgl-bg.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+    <script src="script.js" defer></script>
     <script>
     /* Download only the selected visiting-card surface as a PNG. */
     (function () {
@@ -689,6 +303,7 @@
         }
 
         function draw() {
+            raf = 0;
             frame++;
             const rot = frame * 0.004;
             ctx.clearRect(0, 0, W, H);
@@ -720,9 +335,18 @@
                 }
             }
 
-            requestAnimationFrame(draw);
+            raf = requestAnimationFrame(draw);
         }
-        draw();
+        // Only animate the globe while it is on screen and the tab is visible
+        let raf = 0, onScreen = true;
+        const start = () => { if (!raf && onScreen && !document.hidden) draw(); };
+        const stop  = () => { cancelAnimationFrame(raf); raf = 0; };
+        new IntersectionObserver((entries) => {
+            onScreen = entries[0].isIntersecting;
+            onScreen ? start() : stop();
+        }).observe(canvas.parentElement);
+        document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+        start();
 
         // Intersection Observer to animate cards in
         const cards = document.querySelectorAll('.vcard-anim');
