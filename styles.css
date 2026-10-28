@@ -25,10 +25,9 @@ body {
   overflow-x: hidden;
   color: var(--text);
   background:
-    radial-gradient(circle at 8% 12%, rgba(52, 112, 255, .22), transparent 26rem),
-    radial-gradient(circle at 86% 28%, rgba(141, 73, 255, .18), transparent 30rem),
-    radial-gradient(circle at 52% 74%, rgba(38, 204, 143, .11), transparent 28rem),
-    #04050b;
+    radial-gradient(circle at 8% 9%, rgba(52, 112, 255, .28), transparent 28rem),
+    radial-gradient(circle at 88% 18%, rgba(141, 73, 255, .2), transparent 31rem),
+    #050611;
   font: 400 15px/1.7 Inter, sans-serif;
 }
 body::before {
@@ -40,7 +39,6 @@ body::before {
   opacity: .17;
   background-image: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
   background-size: 72px 72px;
-  mask-image: linear-gradient(to bottom, #000, transparent 85%);
 }
 a { color: inherit; text-decoration: none; }
 button, input, select, textarea { font: inherit; }
@@ -444,10 +442,9 @@ section { padding: 110px 0; }
 /* Reference-inspired workflow showcase */
 body {
   background:
-    radial-gradient(ellipse 75% 32% at 50% 103%, rgba(238, 222, 255, .98), transparent 58%),
-    radial-gradient(ellipse 60% 30% at 50% 92%, rgba(141, 82, 255, .78), transparent 64%),
-    radial-gradient(ellipse 70% 24% at 50% 78%, rgba(57, 34, 111, .72), transparent 70%),
-    #070510;
+    radial-gradient(circle at 8% 9%, rgba(52, 112, 255, .28), transparent 28rem),
+    radial-gradient(circle at 88% 18%, rgba(141, 73, 255, .2), transparent 31rem),
+    #050611;
 }
 .navbar {
   top: 17px;
@@ -481,13 +478,20 @@ body {
 .nav-cta { color: #fff; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); border-radius: 12px; padding: 11px 22px; }
 .nav-hamburger span { background: #2d2159; }
 .hero {
-  min-height: 760px;
-  padding: 204px 0 110px;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 140px 0 80px; /* Provides top clearance for the fixed navbar */
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   isolation: isolate;
+  box-sizing: border-box;
   background:
-    radial-gradient(ellipse 38% 22% at 50% 2%, rgba(240, 184, 217, .17), transparent 72%),
-    linear-gradient(180deg, rgba(6,5,14,.1), rgba(8,5,19,.18));
+    radial-gradient(ellipse 80% 55% at 50% 10%, rgba(0, 180, 225, .16), transparent 72%),
+    radial-gradient(ellipse 60% 35% at 50% 0%,  rgba(30, 100, 220, .14), transparent 68%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(120, 60, 210, .08), transparent 70%);
 }
 .hero-video {
   position: absolute;
@@ -504,6 +508,12 @@ body {
 .hero-panel {
   position: relative;
   z-index: 2;
+  width: min(1080px, calc(100% - 48px));
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .hero::before {
   content: "";
@@ -512,23 +522,23 @@ body {
   z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 34% 40% at 50% 64%, rgba(210, 75, 229, .16), transparent 70%),
-    radial-gradient(ellipse 42% 40% at 8% 54%, rgba(34, 90, 255, .56), transparent 68%),
-    radial-gradient(ellipse 42% 40% at 92% 54%, rgba(196, 98, 37, .42), transparent 68%);
-  filter: blur(10px);
+    /* Top ambient fills: seamless lighting across the top header & navbar */
+    radial-gradient(ellipse 75% 55% at 50% 10%, rgba(20, 80, 180, .32), transparent 70%),
+    radial-gradient(ellipse 55% 40% at 50% 0%,  rgba(0, 210, 230, .24), transparent 65%),
+    radial-gradient(ellipse 45% 45% at 15% 15%, rgba(40, 110, 255, .28), transparent 68%),
+    radial-gradient(ellipse 45% 45% at 85% 15%, rgba(130, 60, 220, .24), transparent 68%),
+    /* Mid & lower ambient fills */
+    radial-gradient(ellipse 34% 40% at 50% 50%, rgba(210, 75, 229, .16), transparent 70%),
+    radial-gradient(ellipse 42% 45% at 6% 56%,  rgba(34, 90, 255, .56), transparent 68%),
+    radial-gradient(ellipse 42% 45% at 94% 56%, rgba(196, 98, 37, .42), transparent 68%);
+  filter: blur(20px);
 }
 .hero::after {
   display: none;
 }
-.hero-panel { width: min(1080px, calc(100% - 48px)); }
-.reference-stage {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  min-height: 436px;
-  position: relative;
-  z-index: 3;
-}
+.hero-panel { width: min(1080px, calc(100% - 48px)); margin: auto; }
+.hero-panel > .reference-stage,
+.reference-stage { display: none !important; }
 .reference-stage::before {
   content: "";
   position: absolute;
@@ -1419,10 +1429,11 @@ body {
   background:
     radial-gradient(circle at 8% 9%, rgba(52, 112, 255, .28), transparent 28rem),
     radial-gradient(circle at 88% 18%, rgba(141, 73, 255, .2), transparent 31rem),
-    linear-gradient(180deg, #050611 0 51%, #f5f3ee 68%, #faf9f5 100%);
+    #050611;
+
+    
 }
 
-.hero,
 .section-about,
 .section-products,
 .section-stack {
@@ -2760,8 +2771,9 @@ body.menu-open {
 @media (max-width: 800px) {
   body {
     background:
-      radial-gradient(ellipse 100% 28% at 50% 100%, rgba(141, 82, 255, .48), transparent 68%),
-      #070510;
+    radial-gradient(circle at 8% 9%, rgba(52, 112, 255, .28), transparent 28rem),
+    radial-gradient(circle at 88% 18%, rgba(141, 73, 255, .2), transparent 31rem),
+    #050611;
   }
 
   body::before {
@@ -2801,3 +2813,232 @@ body.menu-open {
     contain: layout style;
   }
 }
+
+/* ════════════════════════════════════════════════════════════
+   WebGL Particle Wave Background — replaces all video elements
+   ════════════════════════════════════════════════════════════ */
+
+/* Fixed full-screen canvas; sits below everything */
+#radora-webgl-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  display: block;
+  pointer-events: none;
+}
+
+/* When WebGL is active, hide all video backgrounds */
+body.webgl-active .hero-video,
+body.webgl-active .about-video,
+body.webgl-active .ea-video,
+body.webgl-active .footer-video,
+body.webgl-active .stack-video,
+body.webgl-active .stack-item-video,
+body.webgl-active .why-card-video,
+body.webgl-active .team-profile-video {
+  display: none !important;
+}
+
+/* Replace competing body CSS background with the WebGL-matched dark base */
+body.webgl-active {
+  background: #09090d !important;
+}
+
+/* Let the WebGL wave show through section backgrounds with rich top ambient glow */
+body.webgl-active .hero {
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 20%, rgba(0, 180, 225, .15), transparent 75%),
+    radial-gradient(ellipse 70% 50% at 50% 0%,  rgba(30, 95, 215, .18), transparent 70%),
+    radial-gradient(ellipse 50% 45% at 10% 30%, rgba(20, 120, 255, .14), transparent 65%),
+    radial-gradient(ellipse 50% 45% at 90% 30%, rgba(130, 60, 220, .12), transparent 65%),
+    radial-gradient(ellipse 45% 45% at 6% 65%,  rgba(34, 90, 255, .35), transparent 68%),
+    radial-gradient(ellipse 45% 45% at 94% 65%, rgba(196, 98, 37, .25), transparent 68%) !important;
+}
+body.webgl-active .section-about {
+  background: transparent !important;
+}
+body.webgl-active .section-products {
+  background: transparent !important;
+}
+body.webgl-active .footer {
+  background: rgba(7, 5, 16, .50) !important;
+}
+
+/* Fallback gradient when WebGL is unavailable */
+body.webgl-unavailable {
+  background:
+    radial-gradient(ellipse 75% 32% at 50% 103%, rgba(238, 222, 255, .98), transparent 58%),
+    radial-gradient(ellipse 60% 30% at 50% 92%,  rgba(141, 82, 255, .78), transparent 64%),
+    radial-gradient(ellipse 70% 24% at 50% 78%,  rgba(57, 34, 111, .72),  transparent 70%),
+    #070510;
+}
+
+/* Mobile: slight opacity reduction to ease GPU load */
+@media (max-width: 800px) {
+  #radora-webgl-bg { opacity: .90; }
+}
+
+/* ── Critical fix: remove isolation:isolate so fixed canvas shows through ── */
+/*
+ * `isolation: isolate` creates a new stacking context that prevents the
+ * fixed WebGL canvas (z-index: -2 on html) from appearing inside sections.
+ * When WebGL is active, we neutralise isolation and ensure transparent BGs.
+ */
+body.webgl-active .hero,
+body.webgl-active .section-about,
+body.webgl-active .section-products,
+body.webgl-active .footer {
+  isolation: auto;
+}
+
+/* Make the canvas sit at z-index: 0 on the body, and ensure main elements sit above it */
+body.webgl-active #radora-webgl-bg {
+  z-index: 0;
+}
+body.webgl-active main,
+body.webgl-active footer {
+  position: relative;
+  z-index: 1;
+}
+/* These must stay out of normal flow (fixed), so only set z-index here */
+body.webgl-active .navbar { z-index: 20; }
+body.webgl-active .mobile-menu { z-index: 15; }
+body.webgl-active .cursor-glow { z-index: 1; }
+
+
+/* ════════════════════════════════════════════════════════════
+   Hero polish — badge, glow headline, CTAs, product showcase
+   ════════════════════════════════════════════════════════════ */
+.hero { padding-bottom: 64px; }
+.hero-panel { gap: 0; }
+.hero-panel-inner { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; max-width: none; }
+
+/* soft spotlight behind the headline so text pops off the wave */
+.hero-panel-inner::before {
+  content: ""; position: absolute; z-index: -1; left: 50%; top: 52%;
+  width: min(1100px, 100vw); height: 520px; transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse at center, rgba(4, 8, 22, .55) 0%, rgba(4, 8, 22, .25) 45%, transparent 72%);
+  pointer-events: none;
+}
+
+/* status badge */
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px; margin-bottom: 26px; padding: 7px 14px 7px 12px;
+  border: 1px solid rgba(140, 229, 210, .28); border-radius: 999px;
+  background: linear-gradient(120deg, rgba(115, 224, 221, .12), rgba(134, 167, 255, .08));
+  color: #cfe9ff; font: 500 12px/1 Inter, sans-serif; letter-spacing: .02em;
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.03) inset, 0 8px 30px rgba(40, 140, 200, .15);
+  transition: border-color .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.hero-badge:hover { transform: translateY(-2px); border-color: rgba(140, 229, 210, .6); box-shadow: 0 10px 36px rgba(60, 200, 220, .28); }
+.hero-badge-dot { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); }
+.hero-badge-dot::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 1px solid var(--green); animation: heroPing 2.2s cubic-bezier(0,0,.2,1) infinite; }
+.hero-badge-arrow { color: var(--cyan); transition: transform .3s var(--ease); }
+.hero-badge:hover .hero-badge-arrow { transform: translateX(3px); }
+@keyframes heroPing { 0% { transform: scale(.6); opacity: .9; } 80%, 100% { transform: scale(2.2); opacity: 0; } }
+
+/* headline */
+.hero-title { font-size: clamp(2.6rem, 5.4vw, 5.2rem); line-height: 1.04; text-shadow: 0 2px 40px rgba(60, 120, 255, .25); }
+.hero-title .gradient-text-blue { filter: drop-shadow(0 0 26px rgba(120, 225, 225, .38)); }
+.hero-sub { color: #b4bcd6; font-size: clamp(15px, 1.25vw, 18px); max-width: 680px; }
+
+/* CTAs: bring the primary button back, pair with glass secondary */
+.hero-actions { gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+.hero-actions .btn-primary {
+  display: inline-flex; position: relative; padding: 15px 26px; border-radius: 14px; font-size: 14px;
+  background: linear-gradient(110deg, #b5c8ff 0%, #79e2dc 100%);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.35) inset, 0 12px 36px rgba(95, 205, 220, .35), 0 0 60px rgba(95, 160, 255, .22);
+}
+.hero-actions .btn-primary::after { content: "→"; transition: transform .3s var(--ease); }
+.hero-actions .btn-primary:hover { box-shadow: 0 0 0 1px rgba(255,255,255,.5) inset, 0 16px 44px rgba(95, 205, 220, .5), 0 0 80px rgba(95, 160, 255, .35); }
+.hero-actions .btn-primary:hover::after { transform: translateX(4px); }
+.hero-actions .btn-glass {
+  padding: 15px 26px; border-radius: 14px; font-size: 14px; background: rgba(255,255,255,.07);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+}
+
+/* product showcase strip */
+.hero-showcase {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px;
+  width: min(980px, 100%); margin: 64px auto 0;
+}
+.hero-product {
+  position: relative; display: flex; align-items: center; gap: 14px; padding: 16px 18px; overflow: hidden;
+  border: 1px solid rgba(190, 210, 255, .16); border-radius: 18px;
+  background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.022));
+  backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 18px 50px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.1);
+  text-align: left;
+  transition: transform .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease), background .4s var(--ease);
+}
+.hero-product::before {
+  content: ""; position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity .4s var(--ease);
+  background: radial-gradient(circle at 20% 0%, rgba(115, 224, 221, .22), transparent 60%);
+}
+.hero-product:hover { transform: translateY(-5px); border-color: rgba(140, 229, 210, .5); box-shadow: 0 26px 60px rgba(30, 120, 200, .28), inset 0 1px rgba(255,255,255,.16); }
+.hero-product:hover::before { opacity: 1; }
+.hero-product-icon {
+  position: relative; flex: 0 0 42px; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px;
+  color: var(--cyan); background: rgba(115, 224, 221, .1); border: 1px solid rgba(115, 224, 221, .25);
+}
+.hero-product-icon svg { width: 20px; height: 20px; }
+.hero-product-text { position: relative; display: grid; gap: 2px; min-width: 0; }
+.hero-product-text small { color: var(--faint); font: 500 9.5px/1.3 "JetBrains Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+.hero-product-text strong { color: var(--text); font: 600 16px/1.2 "Space Grotesk", sans-serif; letter-spacing: -.02em; }
+.hero-product-go { position: relative; margin-left: auto; color: var(--faint); font-size: 16px; transition: color .3s, transform .3s var(--ease); }
+.hero-product:hover .hero-product-go { color: var(--cyan); transform: translate(2px, -2px); }
+
+/* staggered entrance */
+@keyframes heroRise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+.hero .hero-badge, .hero .hero-eyebrow, .hero .hero-title, .hero .hero-sub, .hero .hero-actions, .hero .hero-showcase {
+  animation: heroRise .9s var(--ease) both;
+}
+.hero .hero-badge    { animation-delay: .05s; }
+.hero .hero-eyebrow  { animation-delay: .15s; }
+.hero .hero-title    { animation-delay: .25s; }
+.hero .hero-sub      { animation-delay: .4s; }
+.hero .hero-actions  { animation-delay: .52s; }
+.hero .hero-showcase { animation-delay: .7s; }
+
+@media (max-width: 800px) {
+  .hero-showcase { grid-template-columns: 1fr; margin-top: 44px; max-width: 460px; }
+  .hero-actions { width: 100%; justify-content: center; }
+}
+@media (max-width: 520px) {
+  .hero-actions > * { width: 100%; }
+}
+
+/* soft cyan floor glow so the bottom of the hero isn't a flat black void */
+.hero::after {
+  display: block; content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 280px; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse 60% 100% at 50% 100%, rgba(0, 170, 220, .16), transparent 70%);
+}
+
+/* Soft fade from Early Access (warm beige) into FAQ (cream) */
+.section-faq { position: relative; }
+.section-faq::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 180px; z-index: 0; pointer-events: none;
+  background: linear-gradient(180deg, #f5f0e8 0%, rgba(250, 249, 245, 0) 100%);
+}
+.section-faq > .container { position: relative; z-index: 1; }
+
+
+/* ════════ Why Radora — readable hover state (text stays dark on the light card) ════════ */
+.section-why .why-card { transition: background .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease); }
+.section-why .why-card::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; z-index: 2;
+  background: linear-gradient(90deg, #6c5ce7, #3bbfbd); transform: scaleX(0); transform-origin: left; transition: transform .45s var(--ease);
+}
+.section-why .why-card:hover,
+.section-why .why-card:focus-within {
+  background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(238, 233, 255, .78));
+  box-shadow: 0 22px 50px rgba(73, 61, 127, .16);
+}
+.section-why .why-card:hover::before,
+.section-why .why-card:focus-within::before { transform: scaleX(1); }
+.section-why .why-card:hover .why-num { color: #6c5ce7; }
+.section-why .why-card:hover h3 { color: #17182a; }
+.section-why .why-card:hover p { color: #4a4760; }

@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dcilrqmox/image/upload/v1785686905/radora_office-removebg-preview_u7bznt.png">
+    <link rel="icon" type="image/svg+xml" href="gemini-svg (1).svg">
 </head>
 <body>
     <!-- Navbar -->
@@ -49,54 +49,16 @@
     <main>
         <!-- ========== HERO SECTION ========== -->
         <section id="top" class="hero">
-            <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-                <source src="./vid.mp4" type="video/mp4">
-            </video>
+            <!-- hero-video removed: WebGL particle wave handles this background -->
             <div class="hero-panel">
-                <div class="reference-stage">
-                    <div class="reference-card reference-card--planning">
-                        <div class="reference-pill"><span>◯</span> Planning</div>
-                        <div class="reference-card-body">
-                            <h2>Turn new<br>programs into<br>structured plans<br>without the noise.</h2>
-                            <ul>
-                                <li>Embedded program leads</li>
-                                <li>Decision-ready roadmaps</li>
-                            </ul>
-                            <a href="#products" class="reference-button">Learn more <span>→</span></a>
-                        </div>
-                    </div>
-                    <div class="reference-card reference-card--procurement">
-                        <div class="reference-pill"><span>◔</span> Procurement</div>
-                        <div class="reference-card-body">
-                            <h2>Source and qualify<br>vendors with far<br>less friction.</h2>
-                            <ul>
-                                <li>Cross-org scope alignment</li>
-                                <li>End-to-end accountability</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="reference-card reference-card--logistics">
-                        <div class="reference-pill"><span>◌</span> Logistics</div>
-                        <div class="reference-card-body">
-                            <h2>Move the right<br>materials on time<br>without surprises.</h2>
-                            <ul>
-                                <li>Spec and fit validations</li>
-                                <li>Change order ownership</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="reference-card reference-card--commissioning">
-                        <div class="reference-pill"><span>♧</span> Commissioning</div>
-                        <div class="reference-card-body">
-                            <h2>Activate systems<br>with complete<br>context, not<br>guesswork.</h2>
-                            <ul>
-                                <li>Uninterrupted workflows</li>
-                                <li>Verified clean handoffs</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
                 <div class="hero-panel-inner">
+                    <!-- Status badge -->
+                    <a href="#early-access" class="hero-badge anim-in">
+                        <span class="hero-badge-dot" aria-hidden="true"></span>
+                        <span>Early access is open</span>
+                        <span class="hero-badge-arrow" aria-hidden="true">→</span>
+                    </a>
+
                     <!-- Eyebrow -->
                     <div class="hero-eyebrow anim-in">
                         <span class="eyebrow-line"></span>
@@ -120,6 +82,40 @@
                         <a href="#products" class="btn-primary btn-lg">Explore Ecosystem</a>
                         <a href="#early-access" class="btn-glass btn-lg">Request Early Access</a>
                     </div>
+                </div>
+
+                <!-- Product showcase strip -->
+                <div class="hero-showcase anim-in" aria-label="Radora products">
+                    <a href="#products" class="hero-product">
+                        <span class="hero-product-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1.4 2.2 3 5 3s5-1.6 5-3v-4.5"/></svg>
+                        </span>
+                        <span class="hero-product-text">
+                            <small>AI Learning Management</small>
+                            <strong>Radora Next</strong>
+                        </span>
+                        <span class="hero-product-go" aria-hidden="true">↗</span>
+                    </a>
+                    <a href="#products" class="hero-product">
+                        <span class="hero-product-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"/></svg>
+                        </span>
+                        <span class="hero-product-text">
+                            <small>Healthcare Management</small>
+                            <strong>Radora Pulse</strong>
+                        </span>
+                        <span class="hero-product-go" aria-hidden="true">↗</span>
+                    </a>
+                    <a href="#products" class="hero-product">
+                        <span class="hero-product-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M13.5 5l-3 14"/></svg>
+                        </span>
+                        <span class="hero-product-text">
+                            <small>Engineering Developer Tool</small>
+                            <strong>Radora Radium AI</strong>
+                        </span>
+                        <span class="hero-product-go" aria-hidden="true">↗</span>
+                    </a>
                 </div>
 
                 <!-- Ecosystem Orbit Diagram -->
@@ -205,9 +201,7 @@
 
         <!-- ========== ABOUT SECTION ========== -->
         <section id="about" class="section-about">
-            <video class="about-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-                <source src="./vid.mp4" type="video/mp4">
-            </video>
+            <!-- about-video removed: WebGL particle wave handles this background -->
             <div class="container">
                 <div class="section-label anim-in">
                     <span class="label-mono">[ 02 / About ]</span>
@@ -357,7 +351,7 @@
         <section class="section-stack">
             <div class="container">
                 <div class="section-label anim-in">
-                    <span class="label-mono light">[ 07 / Stack ]</span>
+                    <span class="label-mono light">[ 04 / Stack ]</span>
                     <span class="label-line light"></span>
                 </div>
                 <h2 class="stack-title section-heading anim-in">Built with modern and <em class="accent-glow">future-ready</em> technology.</h2>
@@ -378,43 +372,37 @@
         <section id="why" class="section-why">
             <div class="container">
                 <div class="section-label anim-in">
-                    <span class="label-mono">[ 06 / Why Radora ]</span>
+                    <span class="label-mono">[ 05 / Why Radora ]</span>
                     <span class="label-line"></span>
                 </div>
                 <h2 class="why-heading section-heading anim-in">Why institutions choose Radora.</h2>
                 <div class="why-grid">
                     <div class="why-card anim-in" data-delay="0">
-                        <video class="why-card-video" muted loop playsinline preload="none" aria-hidden="true"><source src="./vid.mp4" type="video/mp4"></video>
                         <div class="why-card-top"><span class="why-num">01</span><span class="why-arrow">↗</span></div>
                         <h3>AI-Driven Platforms</h3>
                         <p>Integrated AI systems for automation, analytics and operational efficiency.</p>
                     </div>
                     <div class="why-card anim-in" data-delay="50">
-                        <video class="why-card-video" muted loop playsinline preload="none" aria-hidden="true"><source src="./vid.mp4" type="video/mp4"></video>
                         <div class="why-card-top"><span class="why-num">02</span><span class="why-arrow">↗</span></div>
                         <h3>Modern UX</h3>
                         <p>Fast, responsive and scalable digital platforms.</p>
                     </div>
                     <div class="why-card anim-in" data-delay="100">
-                        <video class="why-card-video" muted loop playsinline preload="none" aria-hidden="true"><source src="./vid.mp4" type="video/mp4"></video>
                         <div class="why-card-top"><span class="why-num">03</span><span class="why-arrow">↗</span></div>
                         <h3>Enterprise-Grade Security</h3>
                         <p>Secure role‑based architecture with protected workflows.</p>
                     </div>
                     <div class="why-card anim-in" data-delay="150">
-                        <video class="why-card-video" muted loop playsinline preload="none" aria-hidden="true"><source src="./vid.mp4" type="video/mp4"></video>
                         <div class="why-card-top"><span class="why-num">04</span><span class="why-arrow">↗</span></div>
                         <h3>Scalable Infrastructure</h3>
                         <p>Designed for growth from startups to large institutions.</p>
                     </div>
                     <div class="why-card anim-in" data-delay="200">
-                        <video class="why-card-video" muted loop playsinline preload="none" aria-hidden="true"><source src="./vid.mp4" type="video/mp4"></video>
                         <div class="why-card-top"><span class="why-num">05</span><span class="why-arrow">↗</span></div>
                         <h3>Modular Ecosystem</h3>
                         <p>Multiple products connected under one ecosystem.</p>
                     </div>
                     <div class="why-card anim-in" data-delay="250">
-                        <video class="why-card-video" muted loop playsinline preload="none" aria-hidden="true"><source src="./vid.mp4" type="video/mp4"></video>
                         <div class="why-card-top"><span class="why-num">06</span><span class="why-arrow">↗</span></div>
                         <h3>Cloud-Ready</h3>
                         <p>Accessible from anywhere with scalable deployment systems.</p>
@@ -427,7 +415,7 @@
         <section id="roadmap" class="section-roadmap">
             <div class="container">
                 <div class="section-label anim-in">
-                    <span class="label-mono">[ 04 / Roadmap ]</span>
+                    <span class="label-mono">[ 06 / Roadmap ]</span>
                     <span class="label-line"></span>
                 </div>
                 <h2 class="roadmap-heading section-heading anim-in">From foundation to a global SaaS ecosystem.</h2>
@@ -488,7 +476,7 @@
         <section class="section-stage">
             <div class="container">
                 <div class="section-label anim-in">
-                    <span class="label-mono">[ 05 / Current Stage ]</span>
+                    <span class="label-mono">[ 07 / Current Stage ]</span>
                     <span class="label-line"></span>
                 </div>
                 <h2 class="stage-heading section-heading anim-in">Where Radora stands today.</h2>
@@ -519,9 +507,7 @@
 
         <!-- ========== EARLY ACCESS ========== -->
         <section id="early-access" class="section-ea">
-            <video class="ea-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-                <source src="./vid.mp4" type="video/mp4">
-            </video>
+            <!-- ea-video removed: WebGL particle wave handles this background -->
             <div class="container">
                 <div class="section-label anim-in">
                     <span class="label-mono dark">[ 08 / Early Access ]</span>
@@ -664,9 +650,7 @@
 
     <!-- ========== FOOTER ========== -->
     <footer class="footer">
-        <video class="footer-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-            <source src="./vid.mp4" type="video/mp4">
-        </video>
+        <!-- footer-video removed: WebGL particle wave handles this background -->
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
@@ -853,6 +837,8 @@
     <div class="cursor-glow" id="cursorGlow"></div>
 
     <!-- Scripts -->
+    <!-- WebGL particle wave background: replaces the 64MB video file -->
+    <script src="webgl-bg.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
