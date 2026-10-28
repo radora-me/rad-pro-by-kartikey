@@ -1,0 +1,443 @@
+/* ═══════════════════════════════════════════════════════
+           E-VISITING CARD PAGE — self-contained styles
+           ═══════════════════════════════════════════════════════ */
+
+        .vcard-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vcard-hero {
+            padding: 140px 0 60px;
+        }
+        .vcard-hero .team-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--muted);
+            font: 500 11px/1 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: .18em;
+            margin-bottom: 28px;
+        }
+        .vcard-hero .team-eyebrow span {
+            display: block;
+            width: 28px;
+            height: 1px;
+            background: var(--blue);
+        }
+        .vcard-hero h1 {
+            font-size: clamp(32px, 5vw, 54px);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -.045em;
+            margin-bottom: 12px;
+        }
+        .vcard-hero h1 span {
+            background: linear-gradient(110deg, var(--blue), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .vcard-hero .vcard-intro {
+            color: var(--muted);
+            font-size: 16px;
+            max-width: 540px;
+            line-height: 1.7;
+        }
+
+        /* ── Card Container ── */
+        .vcard-showcase {
+            padding: 0 0 100px;
+        }
+        .vcard-wrapper {
+            perspective: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 48px;
+        }
+
+        /* ── Individual Card ── */
+        .vcard {
+            position: relative;
+            width: 100%;
+            max-width: 630px;
+            aspect-ratio: 3.5 / 2;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow:
+                0 2px 0 rgba(134,167,255,.12),
+                0 24px 64px rgba(0,0,0,.55),
+                0 4px 16px rgba(0,0,0,.3),
+                inset 0 1px 0 rgba(255,255,255,.06);
+            transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+            cursor: default;
+        }
+        .vcard:hover {
+            transform: translateY(-6px) rotateX(2deg);
+            box-shadow:
+                0 2px 0 rgba(134,167,255,.18),
+                0 32px 80px rgba(0,0,0,.6),
+                0 8px 24px rgba(0,0,0,.35),
+                inset 0 1px 0 rgba(255,255,255,.1);
+        }
+
+        /* ── Card Label ── */
+        .vcard-label {
+            text-align: center;
+            margin-bottom: 14px;
+            font: 500 11px/1 'JetBrains Mono', monospace;
+            color: var(--faint);
+            text-transform: uppercase;
+            letter-spacing: .18em;
+        }
+
+        /* ── FRONT CARD ── */
+        .vcard-front {
+            background:
+                radial-gradient(ellipse at 15% 20%, rgba(50, 100, 255, .25), transparent 50%),
+                radial-gradient(ellipse at 85% 80%, rgba(80, 120, 255, .18), transparent 45%),
+                linear-gradient(145deg, #090c18 0%, #0a0f1c 40%, #060a14 100%);
+        }
+        .vcard-front::before {
+            content: "";
+            position: absolute;
+            top: -30%;
+            left: -10%;
+            width: 65%;
+            height: 120%;
+            background: linear-gradient(
+                135deg,
+                rgba(60, 120, 255, .06) 0%,
+                rgba(60, 130, 255, .14) 30%,
+                rgba(80, 150, 255, .08) 50%,
+                transparent 70%
+            );
+            border-radius: 0 0 60% 0;
+            pointer-events: none;
+        }
+        .vcard-front::after {
+            content: "";
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 55%;
+            height: 80%;
+            background: linear-gradient(
+                -45deg,
+                rgba(40, 90, 255, .06) 0%,
+                rgba(60, 140, 255, .12) 40%,
+                transparent 70%
+            );
+            border-radius: 60% 0 0 0;
+            pointer-events: none;
+        }
+
+        /* Wave decorations */
+        .vcard-wave {
+            position: absolute;
+            pointer-events: none;
+        }
+        .vcard-wave-top {
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
+        .vcard-wave-bottom {
+            bottom: 0; right: 0; width: 100%; height: 100%;
+        }
+
+        /* Front content */
+        .vcard-front-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 32px;
+            text-align: center;
+        }
+        .vcard-logo-group {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 6px;
+        }
+        
+        .vcard-logo-r {
+            font: 700 clamp(42px, 8vw, 62px) 'Space Grotesk', sans-serif;
+            letter-spacing: -.04em;
+            color: var(--text);
+            line-height: 1;
+        }
+        .vcard-logo-arrow {
+            width: clamp(28px, 5vw, 40px);
+            height: clamp(28px, 5vw, 40px);
+            margin-left: 2px;
+            fill: var(--text);
+        }
+        .vcard-tagline {
+            font: italic 400 clamp(12px, 2vw, 16px)/1.4 'Space Grotesk', sans-serif;
+            color: var(--muted);
+            letter-spacing: .02em;
+            margin-bottom: 20px;
+        }
+        .vcard-services {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font: 500 clamp(8px, 1.4vw, 11px)/1 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            color: var(--faint);
+        }
+        .vcard-services-sep {
+            width: 1px;
+            height: 12px;
+            background: var(--faint);
+            opacity: .5;
+        }
+
+        /* ── BACK CARD ── */
+        .vcard-back {
+            background:
+                radial-gradient(ellipse at 80% 65%, rgba(30, 70, 200, .15), transparent 50%),
+                linear-gradient(145deg, #080b16 0%, #0a0f1c 100%);
+        }
+        .vcard-back-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 100%;
+            padding: clamp(20px, 4vw, 36px);
+        }
+
+        /* Back Left */
+        .vcard-back-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .vcard-person-name {
+            font: 700 clamp(18px, 3.6vw, 28px) 'Space Grotesk', sans-serif;
+            letter-spacing: -.03em;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+        .vcard-person-role {
+            font: 500 clamp(9px, 1.6vw, 12px)/1 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: .2em;
+            color: var(--blue);
+            margin-bottom: clamp(12px, 2.5vw, 22px);
+        }
+        .vcard-contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(6px, 1.2vw, 10px);
+        }
+        .vcard-contact-item {
+            display: flex;
+            align-items: center;
+            gap: clamp(8px, 1.5vw, 12px);
+            color: var(--muted);
+            font-size: clamp(9px, 1.5vw, 13px);
+            transition: color .2s;
+        }
+        .vcard-contact-item:hover {
+            color: var(--text);
+        }
+        .vcard-contact-icon {
+            flex-shrink: 0;
+            width: clamp(18px, 3vw, 26px);
+            height: clamp(18px, 3vw, 26px);
+            border-radius: 50%;
+            border: 1px solid rgba(134,167,255,.25);
+            display: grid;
+            place-items: center;
+        }
+        .vcard-contact-icon svg {
+            width: clamp(10px, 1.5vw, 13px);
+            height: clamp(10px, 1.5vw, 13px);
+            fill: none;
+            stroke: var(--blue);
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Back Right — Globe + Quote */
+        .vcard-back-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: right;
+            position: relative;
+        }
+        .vcard-globe {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: .25;
+            overflow: hidden;
+            border-radius: 0 10px 10px 0;
+        }
+        .vcard-globe canvas {
+            width: 100%;
+            height: 100%;
+        }
+        .vcard-quote {
+            position: relative;
+            z-index: 1;
+            font: italic 500 clamp(12px, 2.2vw, 18px)/1.35 'Space Grotesk', sans-serif;
+            color: var(--text);
+            max-width: 220px;
+            letter-spacing: -.01em;
+        }
+        .vcard-quote-line {
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--blue);
+            border-radius: 2px;
+            margin-top: 12px;
+            margin-left: auto;
+        }
+
+        /* ── Download / Actions ── */
+        .vcard-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            padding-top: 12px;
+        }
+        .vcard-actions .btn-outline,
+        .vcard-actions .btn-primary {
+            font-size: 13px;
+        }
+        .vcard-actions button:disabled {
+            opacity: .55;
+            cursor: wait;
+        }
+        .vcard-download-status {
+            flex-basis: 100%;
+            min-height: 18px;
+            color: var(--muted);
+            font: 11px/1.5 'JetBrains Mono', monospace;
+            text-align: center;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 720px) {
+            .vcard { max-width: 100%; }
+            .vcard-services { gap: 10px; }
+            .vcard-actions { flex-direction: column; align-items: stretch; }
+            .vcard-actions > * { width: 100%; text-align: center; }
+        }
+
+        @media (max-width: 520px) {
+            .vcard-showcase { padding-bottom: 72px; }
+            .vcard-front {
+                aspect-ratio: 1 / 1.08;
+                min-height: 300px;
+            }
+            .vcard-back {
+                aspect-ratio: auto;
+                min-height: 420px;
+            }
+            .vcard-back-content {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .vcard-back-right {
+                align-items: flex-start;
+                text-align: left;
+                min-height: 88px;
+            }
+            .vcard-quote-line { margin-left: 0; }
+            .vcard-globe { display: none; }
+            .vcard-contact-item { font-size: 11px; }
+            .vcard-contact-item > span:last-child { overflow-wrap: anywhere; }
+            .vcard-services {
+                flex-wrap: wrap;
+                justify-content: center;
+                row-gap: 9px;
+            }
+            .vcard-services-sep { display: none; }
+        }
+
+        /* ── Animation classes ── */
+        .vcard-anim {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .7s var(--ease), transform .7s var(--ease);
+        }
+        .vcard-anim.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .vcard-anim:nth-child(2) { transition-delay: .12s; }
+        .vcard-anim:nth-child(3) { transition-delay: .24s; }
+
+        /* ── Reuse team footer ── */
+        .vcard-page .team-footer { margin-top: auto; }
+
+/* ═══════════════════════════════════════════════════════════
+   Visiting-card page — theme matched to the Radora hero / team page
+   (card surfaces above are untouched so the PNG downloads look identical)
+   ═══════════════════════════════════════════════════════════ */
+.vcard-page .tm-hero { padding: 175px 0 56px; }
+.vcard-showcase { position: relative; z-index: 1; padding: 0 0 100px; }
+
+.vcard-wrapper {
+  perspective: 1200px; display: grid; grid-template-columns: minmax(0, 1fr);
+  justify-items: center; gap: 46px;
+}
+.vcard-wrapper > .vcard-anim { width: 100%; max-width: 630px; }
+.vcard { max-width: none; border: 1px solid rgba(160, 190, 255, .16); }
+
+/* soft colour glow behind each card */
+.vcard-anim:not(.vcard-actions) { position: relative; isolation: isolate; }
+.vcard-anim:not(.vcard-actions)::before {
+  content: ""; position: absolute; z-index: -1; inset: 8% -6% -10%; border-radius: 40px; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 60%, rgba(60, 120, 255, .30), rgba(110, 80, 230, .12) 50%, transparent 72%);
+  filter: blur(26px);
+}
+.vcard-anim:nth-of-type(2):not(.vcard-actions)::before {
+  background: radial-gradient(ellipse at 50% 60%, rgba(60, 200, 210, .22), rgba(60, 120, 255, .10) 50%, transparent 72%);
+}
+
+/* Front / Back pills */
+.vcard-label {
+  display: table; margin: 0 auto 16px; padding: 7px 14px;
+  border: 1px solid rgba(140, 229, 210, .26); border-radius: 999px;
+  background: linear-gradient(120deg, rgba(115, 224, 221, .1), rgba(134, 167, 255, .07));
+  color: #cfe9ff; letter-spacing: .16em;
+}
+
+/* Actions */
+.vcard-actions { grid-column: 1 / -1; max-width: none !important; gap: 14px; padding-top: 6px; align-items: center; }
+.vc-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 24px; border-radius: 14px;
+  border: 1px solid rgba(190, 210, 255, .22); background: rgba(255, 255, 255, .06); color: var(--text);
+  font: 500 13px/1 "Inter", sans-serif; cursor: pointer;
+  transition: transform .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease), box-shadow .3s var(--ease);
+}
+.vc-btn:hover:not(:disabled) { transform: translateY(-3px); border-color: rgba(140, 229, 210, .55); background: rgba(115, 224, 221, .1); box-shadow: 0 12px 32px rgba(40, 140, 200, .2); }
+.vc-btn:disabled { opacity: .55; cursor: wait; }
+.vcard-actions .tm-btn { padding: 15px 26px; font-size: 13px; }
+.vcard-download-status { order: 5; }
+
+@media (min-width: 1100px) {
+  .vcard-wrapper { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 52px 40px; justify-items: stretch; }
+  .vcard-wrapper > .vcard-anim { max-width: none; }
+}
+@media (max-width: 800px) { .vcard-page .tm-hero { padding: 145px 0 40px; } }
+@media (max-width: 720px) { .vcard-actions .vc-btn, .vcard-actions .tm-btn { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .vcard-anim { opacity: 1; transform: none; transition: none; } }
