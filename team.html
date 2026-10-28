@@ -7,17 +7,22 @@
     <meta name="description" content="Meet the people building Radora's intelligent digital infrastructure.">
     <meta property="og:title" content="Our Team — Radora">
     <meta property="og:description" content="Meet the people building Radora's intelligent digital infrastructure.">
+    <meta name="theme-color" content="#09090d">
+    <script>document.documentElement.classList.add('js');</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="team.css">
+    <link rel="icon" type="image/svg+xml" href="gemini-svg%20(1).svg">
 </head>
 <body class="team-page">
     <nav class="navbar" id="navbar" aria-label="Main navigation">
         <div class="nav-inner">
             <a href="index.html#top" class="nav-logo" aria-label="Radora home">
                 <div class="logo-icon">
-                    <img src="https://res.cloudinary.com/dcilrqmox/image/upload/v1785686905/radora_office-removebg-preview_u7bznt.png" alt="Radora logo">
+                    <img src="https://res.cloudinary.com/dcilrqmox/image/upload/v1785686905/radora_office-removebg-preview_u7bznt.png" alt="Radora logo" fetchpriority="high" decoding="async">
                 </div>
             </a>
             <div class="nav-links">
@@ -44,151 +49,108 @@
     </div>
 
     <main>
-        <section class="team-hero">
-            <div class="container">
-                <p class="team-eyebrow"><span></span> The people behind Radora</p>
-                <h1>Building the future,<br><span>together.</span></h1>
-                <p class="team-intro">We’re building intelligent digital infrastructure designed to make modern systems more accessible, scalable, and reliable.</p>
+        <!-- ───────── Hero ───────── -->
+        <section class="tm-hero">
+            <div class="tm-wrap">
+                <p class="tm-badge"><span class="tm-badge-dot" aria-hidden="true"></span> The people behind Radora</p>
+                <h1 class="tm-title">Building the future,<br><span class="tm-grad">together.</span></h1>
+                <p class="tm-intro">We’re building intelligent digital infrastructure designed to make modern systems more accessible, scalable, and reliable.</p>
+                <ul class="tm-chips" aria-label="Where we build">
+                    <li>Education</li>
+                    <li>Healthcare</li>
+                    <li>Enterprise</li>
+                </ul>
+            </div>
+        </section>
 
-                <div class="team-members-grid">
-                    <article class="team-profile">
-                        <video class="team-profile-video" muted loop playsinline preload="metadata" aria-hidden="true">
-                            <source src="./vid.mp4" type="video/mp4">
-                        </video>
-                        <div class="team-profile-inner">
-                            <div class="team-profile-face team-profile-front">
-                                <div class="team-profile-image">
-                                    <img src="kartikey-removebg-preview.png" alt="Kartikey Pandey, Founder and CEO of Radora" fetchpriority="high">
-                                </div>
-                                <div class="team-profile-info">
-                                    <p class="team-profile-label">Founder</p>
-                                    <h2>Kartikey Pandey</h2>
-                                    <p class="team-profile-role">Founder &amp; CEO</p>
-                                    <div class="team-profile-divider"></div>
-                                    <button class="team-profile-flip" type="button" aria-expanded="false">View profile <span aria-hidden="true">↗</span></button>
-                                </div>
-                                <span class="team-profile-index">01 <span>/ 04</span></span>
-                            </div>
-                            <div class="team-profile-face team-profile-back">
-                                <div class="team-profile-back-info">
-                                    <p class="team-profile-label">Founder &amp; CEO</p>
-                                    <h2>Kartikey Pandey</h2>
-                                    <p class="team-profile-description">Leading Radora’s work to create intelligent digital platforms for institutions, healthcare systems, and enterprises.</p>
-                                    <a class="team-profile-email" href="mailto:kartikey.pandey@radora.tech">kartikey.pandey@radora.tech</a>
-                                </div>
-                                <button class="team-profile-flip team-profile-flip-back" type="button" aria-expanded="true">Back to photo <span aria-hidden="true">↶</span></button>
-                            </div>
+        <!-- ───────── Team ───────── -->
+        <section class="tm-team" aria-label="Radora leadership">
+            <div class="tm-wrap">
+                <div class="tm-grid">
+                    <article class="tm-card tm-reveal" style="--accent:#73e0dd;--accent2:#4f8cff">
+                        <div class="tm-card-top"><span class="tm-num">01</span><span class="tm-tag">Founder</span></div>
+                        <div class="tm-photo">
+                            <img src="kartikey-removebg-preview.png" alt="Kartikey Pandey, Founder and CEO of Radora" decoding="async" fetchpriority="high">
+                        </div>
+                        <div class="tm-body">
+                            <h2>Kartikey Pandey</h2>
+                            <p class="tm-role">Founder &amp; CEO</p>
+                            <p class="tm-desc">Leading Radora’s work to create intelligent digital platforms for institutions, healthcare systems, and enterprises.</p>
+                            <a class="tm-mail" href="mailto:kartikey.pandey@radora.tech">kartikey.pandey@radora.tech</a>
                         </div>
                     </article>
 
-                    <article class="team-profile">
-                        <video class="team-profile-video" muted loop playsinline preload="metadata" aria-hidden="true">
-                            <source src="./vid.mp4" type="video/mp4">
-                        </video>
-                        <div class="team-profile-inner">
-                            <div class="team-profile-face team-profile-front">
-                                <div class="team-profile-image">
-                                    <img src="aditya.png" alt="Aditya Mahajan, CTO of Radora" loading="lazy">
-                                </div>
-                                <div class="team-profile-info">
-                                    <p class="team-profile-label">Leadership</p>
-                                    <h2>Aditya Mahajan</h2>
-                                    <p class="team-profile-role">CTO</p>
-                                    <div class="team-profile-divider"></div>
-                                    <button class="team-profile-flip" type="button" aria-expanded="false">View profile <span aria-hidden="true">↗</span></button>
-                                </div>
-                                <span class="team-profile-index">02 <span>/ 04</span></span>
-                            </div>
-                            <div class="team-profile-face team-profile-back">
-                                <div class="team-profile-back-info">
-                                    <p class="team-profile-label">CTO</p>
-                                    <h2>Aditya Mahajan</h2>
-                                    <p class="team-profile-description">Guiding Radora’s technology vision and building scalable, reliable foundations for its digital platforms.</p>
-                                    <a class="team-profile-email" href="mailto:aditya.mahajan@radora.tech">aditya.mahajan@radora.tech</a>
-                                </div>
-                                <button class="team-profile-flip team-profile-flip-back" type="button" aria-expanded="true">Back to photo <span aria-hidden="true">↶</span></button>
-                            </div>
+                    <article class="tm-card tm-reveal" style="--accent:#a99cff;--accent2:#6c5ce7">
+                        <div class="tm-card-top"><span class="tm-num">02</span><span class="tm-tag">Leadership</span></div>
+                        <div class="tm-photo">
+                            <img src="aditya.png" alt="Aditya Mahajan, CTO of Radora" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tm-body">
+                            <h2>Aditya Mahajan</h2>
+                            <p class="tm-role">CTO</p>
+                            <p class="tm-desc">Guiding Radora’s technology vision and building scalable, reliable foundations for its digital platforms.</p>
+                            <a class="tm-mail" href="mailto:aditya.mahajan@radora.tech">aditya.mahajan@radora.tech</a>
                         </div>
                     </article>
 
-                    <article class="team-profile">
-                        <video class="team-profile-video" muted loop playsinline preload="metadata" aria-hidden="true">
-                            <source src="./vid.mp4" type="video/mp4">
-                        </video>
-                        <div class="team-profile-inner">
-                            <div class="team-profile-face team-profile-front">
-                                <div class="team-profile-image">
-                                    <img src="nikhil tripathi.png" alt="Nikhil Tripathi, COO of Radora" loading="lazy">
-                                </div>
-                                <div class="team-profile-info">
-                                    <p class="team-profile-label">Leadership</p>
-                                    <h2>Nikhil Tripathi</h2>
-                                    <p class="team-profile-role">COO</p>
-                                    <div class="team-profile-divider"></div>
-                                    <button class="team-profile-flip" type="button" aria-expanded="false">View profile <span aria-hidden="true">↗</span></button>
-                                </div>
-                                <span class="team-profile-index">03 <span>/ 04</span></span>
-                            </div>
-                            <div class="team-profile-face team-profile-back">
-                                <div class="team-profile-back-info">
-                                    <p class="team-profile-label">COO</p>
-                                    <h2>Nikhil Tripathi</h2>
-                                    <p class="team-profile-description">Turning Radora’s vision into coordinated execution, with a focus on effective operations and sustainable growth.</p>
-                                    <a class="team-profile-email" href="mailto:nikhil.tripathi@radora.tech">nikhil.tripathi@radora.tech</a>
-                                </div>
-                                <button class="team-profile-flip team-profile-flip-back" type="button" aria-expanded="true">Back to photo <span aria-hidden="true">↶</span></button>
-                            </div>
+                    <article class="tm-card tm-reveal" style="--accent:#ffb36b;--accent2:#ff7a45">
+                        <div class="tm-card-top"><span class="tm-num">03</span><span class="tm-tag">Leadership</span></div>
+                        <div class="tm-photo">
+                            <img src="nikhil%20tripathi.png" alt="Nikhil Tripathi, COO of Radora" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tm-body">
+                            <h2>Nikhil Tripathi</h2>
+                            <p class="tm-role">COO</p>
+                            <p class="tm-desc">Turning Radora’s vision into coordinated execution, with a focus on effective operations and sustainable growth.</p>
+                            <a class="tm-mail" href="mailto:nikhil.tripathi@radora.tech">nikhil.tripathi@radora.tech</a>
                         </div>
                     </article>
 
-                    <article class="team-profile">
-                        <video class="team-profile-video" muted loop playsinline preload="metadata" aria-hidden="true">
-                            <source src="./vid.mp4" type="video/mp4">
-                        </video>
-                        <div class="team-profile-inner">
-                            <div class="team-profile-face team-profile-front">
-                                <div class="team-profile-image">
-                                    <img src="vishakha 2.png" alt="Vishakha Malviya, CMO of Radora" loading="lazy">
-                                </div>
-                                <div class="team-profile-info">
-                                    <p class="team-profile-label">Leadership</p>
-                                    <h2>Vishakha Malviya</h2>
-                                    <p class="team-profile-role">CMO</p>
-                                    <div class="team-profile-divider"></div>
-                                    <button class="team-profile-flip" type="button" aria-expanded="false">View profile <span aria-hidden="true">↗</span></button>
-                                </div>
-                                <span class="team-profile-index">04 <span>/ 04</span></span>
-                            </div>
-                            <div class="team-profile-face team-profile-back">
-                                <div class="team-profile-back-info">
-                                    <p class="team-profile-label">CMO</p>
-                                    <h2>Vishakha Malviya</h2>
-                                    <p class="team-profile-description">Shaping Radora’s brand and communications while connecting its digital solutions with the people and organizations they serve.</p>
-                                    <a class="team-profile-email" href="mailto:vishakha.malviya@radora.tech">vishakha.malviya@radora.tech</a>
-                                </div>
-                                <button class="team-profile-flip team-profile-flip-back" type="button" aria-expanded="true">Back to photo <span aria-hidden="true">↶</span></button>
-                            </div>
+                    <article class="tm-card tm-reveal" style="--accent:#f19bdb;--accent2:#b18cff">
+                        <div class="tm-card-top"><span class="tm-num">04</span><span class="tm-tag">Leadership</span></div>
+                        <div class="tm-photo">
+                            <img src="vishakha%202.png" alt="Vishakha Malviya, CMO of Radora" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tm-body">
+                            <h2>Vishakha Malviya</h2>
+                            <p class="tm-role">CMO</p>
+                            <p class="tm-desc">Shaping Radora’s brand and communications while connecting its digital solutions with the people and organizations they serve.</p>
+                            <a class="tm-mail" href="mailto:vishakha.malviya@radora.tech">vishakha.malviya@radora.tech</a>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="team-cta">
-            <div class="container team-cta-inner">
-                <div>
-                    <p class="team-eyebrow"><span></span> The next chapter</p>
-                    <h2>Let’s build what’s next.</h2>
+        <!-- ───────── Principles ───────── -->
+        <section class="tm-values" aria-label="What guides us">
+            <div class="tm-wrap">
+                <div class="tm-values-grid">
+                    <div class="tm-value tm-reveal"><span class="tm-value-num">01</span><h3>Accessible</h3><p>Modern infrastructure that institutions of any size can adopt.</p></div>
+                    <div class="tm-value tm-reveal"><span class="tm-value-num">02</span><h3>Scalable</h3><p>Platforms designed to grow from a single campus to an entire network.</p></div>
+                    <div class="tm-value tm-reveal"><span class="tm-value-num">03</span><h3>Reliable</h3><p>Dependable foundations that teams can build on with confidence.</p></div>
                 </div>
-                <a href="index.html#early-access" class="btn-outline">Connect with Radora <span aria-hidden="true">→</span></a>
+            </div>
+        </section>
+
+        <!-- ───────── CTA ───────── -->
+        <section class="tm-cta-section">
+            <div class="tm-wrap">
+                <div class="tm-cta tm-reveal">
+                    <div>
+                        <p class="tm-badge"><span class="tm-badge-dot" aria-hidden="true"></span> The next chapter</p>
+                        <h2>Let’s build what’s next.</h2>
+                    </div>
+                    <a href="index.html#early-access" class="tm-btn">Connect with Radora <span aria-hidden="true">→</span></a>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="team-footer">
-        <div class="container team-footer-inner">
-            <a href="index.html#top" class="team-footer-logo" aria-label="Radora home">
-                <img src="https://res.cloudinary.com/dcilrqmox/image/upload/v1785686905/radora_office-removebg-preview_u7bznt.png" alt="Radora logo">
+    <footer class="tm-footer">
+        <div class="tm-wrap tm-footer-inner">
+            <a href="index.html#top" class="tm-footer-logo" aria-label="Radora home">
+                <img src="https://res.cloudinary.com/dcilrqmox/image/upload/v1785686905/radora_office-removebg-preview_u7bznt.png" alt="Radora logo" loading="lazy" decoding="async">
             </a>
             <p>Building AI-powered digital infrastructure for the future of institutions.</p>
             <a href="index.html">Back to Radora <span aria-hidden="true">↗</span></a>
@@ -196,6 +158,32 @@
     </footer>
 
     <div class="cursor-glow" id="cursorGlow"></div>
-    <script src="script.js"></script>
+
+    <script src="webgl-bg.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+    (function () {
+        var items = document.querySelectorAll('.tm-reveal');
+        if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+                });
+            }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+            items.forEach(function (el, i) { el.style.transitionDelay = (i % 4) * 90 + 'ms'; io.observe(el); });
+        } else {
+            items.forEach(function (el) { el.classList.add('is-in'); });
+        }
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            document.querySelectorAll('.tm-card').forEach(function (card) {
+                card.addEventListener('pointermove', function (e) {
+                    var r = card.getBoundingClientRect();
+                    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+                    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+                }, { passive: true });
+            });
+        }
+    })();
+    </script>
 </body>
 </html>
